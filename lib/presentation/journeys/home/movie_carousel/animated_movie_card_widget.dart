@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/common/constants/size_constants.dart';
+import 'package:movieapp/common/extensions/size_extensions.dart';
 import 'package:movieapp/common/screenutil/screentil.dart';
 import 'package:movieapp/presentation/journeys/home/movie_carousel/movie_card_widget.dart';
-import 'package:movieapp/common/extensions/size_extensions.dart';
 class AnimatedMovieCardWidget extends StatelessWidget {
   final int index;
   final PageController pageController;

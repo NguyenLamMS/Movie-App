@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/common/constants/size_constants.dart';
-import 'package:movieapp/common/constants/translation_constants.dart';
-import 'package:movieapp/presentation/themes/app_color.dart';
 import 'package:movieapp/common/extensions/size_extensions.dart';
-import 'package:movieapp/common/extensions/string_extensions.dart';
+import 'package:movieapp/presentation/themes/app_color.dart';
 import 'package:movieapp/presentation/widget/button.dart';
 
 class AppDialog extends StatelessWidget {

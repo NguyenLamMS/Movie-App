@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movieapp/common/constants/size_constants.dart';
-import 'package:movieapp/common/screenutil/screentil.dart';
 import 'package:movieapp/common/extensions/size_extensions.dart';
+import 'package:movieapp/common/screenutil/screentil.dart';
 import 'package:movieapp/presentation/widget/logo.dart';
 
 class MovieAppBar extends StatelessWidget {

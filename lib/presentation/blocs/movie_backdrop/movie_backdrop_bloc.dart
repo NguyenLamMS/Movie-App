@@ -6,7 +6,6 @@ import 'package:meta/meta.dart';
 import 'package:movieapp/domain/entities/movie_entity.dart';
 
 part 'movie_backdrop_event.dart';
-
 part 'movie_backdrop_state.dart';
 
 class MovieBackdropBloc extends Bloc<MovieBackdropEvent, MovieBackdropState> {

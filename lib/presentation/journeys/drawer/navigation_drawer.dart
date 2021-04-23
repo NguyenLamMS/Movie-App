@@ -3,13 +3,11 @@ import 'package:movieapp/common/constants/languages.dart';
 import 'package:movieapp/common/constants/size_constants.dart';
 import 'package:movieapp/common/constants/translation_constants.dart';
 import 'package:movieapp/common/extensions/size_extensions.dart';
-import 'package:movieapp/presentation/app_localizations.dart';
+import 'package:movieapp/common/extensions/string_extensions.dart';
 import 'package:movieapp/presentation/journeys/drawer/navigation_expanded_list_item.dart';
 import 'package:movieapp/presentation/journeys/drawer/navigation_list_item.dart';
-import 'package:movieapp/presentation/themes/app_color.dart';
 import 'package:movieapp/presentation/widget/app_dialog.dart';
 import 'package:movieapp/presentation/widget/logo.dart';
-import 'package:movieapp/common/extensions/string_extensions.dart';
 import 'package:wiredash/wiredash.dart';
 
 class NavigationDrawer extends StatelessWidget {
