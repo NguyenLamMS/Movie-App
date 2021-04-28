@@ -7,12 +7,11 @@ abstract class VideoTrailerState extends Equatable {
 }
 
 class VideoTrailerInitial extends VideoTrailerState {}
-
 class VideoTrailerLoading extends VideoTrailerState{}
 class VideoTrailerError extends VideoTrailerState{}
+class NoVideo extends VideoTrailerState{}
 class VideoTrailerLoaded extends VideoTrailerState{
   final List<VideoEntity> videos;
-
   VideoTrailerLoaded({@required this.videos});
   @override
   List<Object> get props => [videos];

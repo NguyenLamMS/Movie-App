@@ -6,6 +6,7 @@ import 'package:movieapp/common/extensions/size_extensions.dart';
 import 'package:movieapp/common/extensions/string_extensions.dart';
 import 'package:movieapp/presentation/journeys/drawer/navigation_expanded_list_item.dart';
 import 'package:movieapp/presentation/journeys/drawer/navigation_list_item.dart';
+import 'package:movieapp/presentation/journeys/favorite/favorite_screen.dart';
 import 'package:movieapp/presentation/widget/app_dialog.dart';
 import 'package:movieapp/presentation/widget/logo.dart';
 import 'package:wiredash/wiredash.dart';
@@ -33,7 +34,10 @@ class NavigationDrawer extends StatelessWidget {
                 height: Sizes.dimen_20.h,
               ),
             ),
-            NavigationListItem(title: TranslationConstants.favoriteMovies.t(context), onPressed: () {}),
+            NavigationListItem(title: TranslationConstants.favoriteMovies.t(context), onPressed: () {
+              Navigator.pop(context);
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => FavoriteScreen()));
+            }),
             NavigationListItem(
                 title: TranslationConstants.about.t(context),
                 onPressed: () {

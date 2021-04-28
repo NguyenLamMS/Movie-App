@@ -1,6 +1,6 @@
 import 'package:movieapp/domain/entities/movie_entity.dart';
 
-class MovieModel extends MovieEntity{
+class MovieModel extends MovieEntity {
   final int id;
   final bool video;
   final int voteCount;
@@ -35,7 +35,7 @@ class MovieModel extends MovieEntity{
     this.mediaType,
   }) : super(id: id, title: title, backdropPath: backdropPath, posterPath: posterPath, releaseDate: releaseDate, voteAverage: voteAverage, overview: overview);
 
-  factory MovieModel.fromJson(Map<String, dynamic> json){
+  factory MovieModel.fromJson(Map<String, dynamic> json) {
     return MovieModel(
       popularity: json['popularity'].toDouble() ?? 0.0,
       voteCount: json['vote_count'],
@@ -54,7 +54,8 @@ class MovieModel extends MovieEntity{
       mediaType: json['media_type'],
     );
   }
-  Map<String, dynamic> toJson(){
+
+  Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['popularity'] = this.popularity;
     data['vote_count'] = this.voteCount;

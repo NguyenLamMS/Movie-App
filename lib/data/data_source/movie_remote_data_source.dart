@@ -4,6 +4,8 @@ import 'package:movieapp/data/models/cast_crew_result_data_model.dart';
 import 'package:movieapp/data/models/movie_detail_model.dart';
 import 'package:movieapp/data/models/movie_model.dart';
 import 'package:movieapp/data/models/movie_result_model.dart';
+import 'package:movieapp/data/models/search_model.dart';
+import 'package:movieapp/data/models/search_result_model.dart';
 import 'package:movieapp/data/models/video_model.dart';
 import 'package:movieapp/data/models/video_result_model.dart';
 
@@ -17,7 +19,7 @@ abstract class MovieRemoteDataSource {
   Future<MovieDetailModel> getMovieDetail(int id);
   Future<List<CastModel>> getCastCrew(int id);
   Future<List<VideoModel>> getVideo(int id);
-
+  Future<List<SearchModel>> searchVideo(String searchValue);
 }
 class MovieRemoteDataSourceImpl extends MovieRemoteDataSource{
   final ApiClient _client;
@@ -67,6 +69,16 @@ class MovieRemoteDataSourceImpl extends MovieRemoteDataSource{
     final response = await _client.get('movie/$id/videos');
     final video = VideoResultModel.fromJson(response).videos;
     return video;
+  }
+
+  @override
+  Future<List<SearchModel>> searchVideo(String searchValue) async {
+    Map<String, String> params = {
+      'query': searchValue
+    };
+    final response = await _client.get('search/movie', params: params);
+    final movies = SearchResultModel.fromJson(response).movies;
+    return movies;
   }
 }
 

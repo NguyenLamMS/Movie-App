@@ -26,7 +26,7 @@ class VideoTrailerBloc extends Bloc<VideoTrailerEvent, VideoTrailerState> {
   ) async* {
     if(event is LoadVideoTrailerEven){
       Either<AppError, List<VideoEntity>> eitherResponse = await getVideo(MovieParams(event.movieId));
-      yield eitherResponse.fold((l) => VideoTrailerError(), (r) => VideoTrailerLoaded(videos: r));
+      yield eitherResponse.fold((l) => NoVideo(), (r) => VideoTrailerLoaded(videos: r));
     }
   }
 }

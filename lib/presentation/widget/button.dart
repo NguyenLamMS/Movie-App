@@ -14,7 +14,8 @@ class Button extends StatelessWidget {
     return Container(
         padding: EdgeInsets.symmetric(horizontal: Sizes.dimen_16.w),
         margin: EdgeInsets.symmetric(vertical: Sizes.dimen_10.h),
-        height: Sizes.dimen_16.h,
+        // height: Sizes.dimen_16.h,
+        constraints: BoxConstraints(minHeight: Sizes.dimen_16.h),
         decoration: BoxDecoration(gradient: LinearGradient(colors: [AppColor.royalBlue, AppColor.violet]), borderRadius: BorderRadius.all(Radius.circular(Sizes.dimen_20.w))),
         child: TextButton(
             onPressed: onPressed,

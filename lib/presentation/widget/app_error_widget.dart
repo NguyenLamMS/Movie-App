@@ -10,10 +10,9 @@ import 'package:wiredash/wiredash.dart';
 
 class AppErrorWidget extends StatelessWidget {
   final AppErrorType errorType;
-  final MovieCarouselBloc bloc;
   final Function onPressed;
 
-  const AppErrorWidget({Key key, @required this.errorType, @required this.bloc, @required this.onPressed}) : super(key: key);
+  const AppErrorWidget({Key key, @required this.errorType, @required this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
