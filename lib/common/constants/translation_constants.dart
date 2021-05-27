@@ -16,4 +16,5 @@ class TranslationConstants{
   static const String cast = 'cast';
   static const String watchTrailer = 'watchTrailer';
   static const String noMoviesSearched = 'No Movies';
+  static const String username = 'username';
 }

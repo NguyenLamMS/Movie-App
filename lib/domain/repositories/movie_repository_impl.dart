@@ -153,4 +153,5 @@ class MovieRepositoryIml extends MovieRespository {
       return Left(AppError(AppErrorType.database));
     }
   }
+
 }

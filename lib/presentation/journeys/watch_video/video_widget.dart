@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movieapp/common/constants/route_constants.dart';
 import 'package:movieapp/common/constants/translation_constants.dart';
 import 'package:movieapp/presentation/blocs/video_trailer/video_trailer_bloc.dart';
 import 'package:movieapp/presentation/journeys/watch_video/watch_video_arguments.dart';
@@ -16,7 +17,8 @@ class VideoWidget extends StatelessWidget {
       if(state is VideoTrailerLoaded && state.videos.iterator.moveNext()){
         final _video = state.videos;
         return Button(text: TranslationConstants.watchTrailer.t(context), onPressed: (){
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) => WatchVideoScreen(watchVideoArguments: WatchVideoArguments(_video))));
+          // Navigator.of(context).push(MaterialPageRoute(builder: (context) => WatchVideoScreen(watchVideoArguments: WatchVideoArguments(_video))));
+          Navigator.of(context).pushNamed(RouteList.watchTrailer, arguments: WatchVideoArguments(_video));
         });
       }else{
         return const SizedBox.shrink();

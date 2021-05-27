@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movieapp/common/constants/languages.dart';
+import 'package:movieapp/common/constants/route_constants.dart';
 import 'package:movieapp/common/constants/size_constants.dart';
 import 'package:movieapp/common/constants/translation_constants.dart';
 import 'package:movieapp/common/extensions/size_extensions.dart';
 import 'package:movieapp/common/extensions/string_extensions.dart';
+import 'package:movieapp/presentation/blocs/login/login_bloc.dart';
 import 'package:movieapp/presentation/journeys/drawer/navigation_expanded_list_item.dart';
 import 'package:movieapp/presentation/journeys/drawer/navigation_list_item.dart';
 import 'package:movieapp/presentation/journeys/favorite/favorite_screen.dart';
+import 'package:movieapp/presentation/journeys/home/home_screen.dart';
+import 'package:movieapp/presentation/journeys/login/login_screen.dart';
 import 'package:movieapp/presentation/widget/app_dialog.dart';
 import 'package:movieapp/presentation/widget/logo.dart';
 import 'package:wiredash/wiredash.dart';
-
 class NavigationDrawer extends StatelessWidget {
   const NavigationDrawer();
 
@@ -34,10 +38,13 @@ class NavigationDrawer extends StatelessWidget {
                 height: Sizes.dimen_20.h,
               ),
             ),
-            NavigationListItem(title: TranslationConstants.favoriteMovies.t(context), onPressed: () {
-              Navigator.pop(context);
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => FavoriteScreen()));
-            }),
+            NavigationListItem(
+                title: TranslationConstants.favoriteMovies.t(context),
+                onPressed: () {
+                  Navigator.pop(context);
+                  // Navigator.of(context).push(MaterialPageRoute(builder: (context) => FavoriteScreen()));
+                  Navigator.of(context).pushNamed(RouteList.favorite);
+                }),
             NavigationListItem(
                 title: TranslationConstants.about.t(context),
                 onPressed: () {
@@ -59,7 +66,19 @@ class NavigationDrawer extends StatelessWidget {
                   Navigator.of(context).pop();
                   Wiredash.of(context).show();
                 }),
-            NavigationExpanded(title: TranslationConstants.language.t(context), onPressed: () {}, children: Languages.languages.map((e) => e).toList())
+            NavigationExpanded(title: TranslationConstants.language.t(context), onPressed: () {}, children: Languages.languages.map((e) => e).toList()),
+            BlocListener<LoginBloc, LoginState>(
+              listenWhen: (previous, current) => current is LogoutSuccess,
+              listener: (context, state){
+                Navigator.of(context).pushNamedAndRemoveUntil(RouteList.initial, (route) => false);
+                // Navigator.of(myContext).pop();
+              },
+              child: NavigationListItem(
+                  title: 'Logout',
+                  onPressed: () {
+                    BlocProvider.of<LoginBloc>(context).add(LogoutEvent());
+                  }),
+            ),
           ],
         ),
       ),
